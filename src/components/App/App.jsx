@@ -44,9 +44,9 @@ class App extends Component {
       id: nanoid(),
     };
 
-    this.setState({
-      contacts: [...this.state.contacts, newContact],
-    });
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
   };
 
   handleFilter = e => {
@@ -57,9 +57,9 @@ class App extends Component {
 
   handleDeleteContact = e => {
     const id = e.target.parentNode.id;
-    this.setState({
-      contacts: this.state.contacts.filter(item => item.id !== id),
-    });
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(item => item.id !== id),
+    }));
   };
 
   render() {
